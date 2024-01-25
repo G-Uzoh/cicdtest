@@ -1,26 +1,24 @@
 pipeline {
-    agent any
-        
-    stages {
-        stage('Build') {
-            steps {
-                sh 'npm install'
-            }
+   agent any
+
+   stages {
+      stage("build") {
+        steps {
+          echo 'building our app...'
         }
-        stage('Test') {
-            steps {
-              sh "pwd"
-              dir('frontend') {
-              sh "pwd"
-              sh 'npm install'
-              sh 'npm test'
-              }
-            }
+      }
+
+      stage("test") {
+        steps {
+         echo 'testing our app...'
         }
-        stage('Deploy') {
-            steps {
-                echo "Deployed to AWS"
-            }
+      }
+
+      stage("deploy") {
+        steps {
+         echo 'deploying our app...'
         }
-    }
+      }
+
+   }
 }
